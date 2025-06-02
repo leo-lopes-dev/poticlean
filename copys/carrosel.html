@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Imagens</title>
+    <!-- Swiper JS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .carrossel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h2 {
+            margin: 30px 0 15px;
+            color: #333;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 10px solid #0b7e09;
+            height: 300px;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .swiper-slide img:hover {
+            transform: scale(1.02);
+        }
+        
+        .swiper-button-prev, .swiper-button-next {
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .swiper-button-prev::after, .swiper-button-next::after {
+            font-size: 20px;
+        }
+        
+        .swiper-pagination {
+            position: relative;
+            bottom: 0;
+            margin-top: 30px;
+        }
+        
+        .swiper-pagination-bullet {
+            background: #333;
+            opacity: 0.6;
+            width: 12px;
+            height: 12px;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: #0b7e09;
+            opacity: 1;
+        }
+        
+        /* Lightbox Customizado */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .close-lightbox {
+            position: absolute;
+            top: -40px;
+            right: -10px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            z-index: 1001;
+            display: none;
+        }
+        
+        .lightbox-close-top {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 1002;
+        }
+        
+        @media (max-width: 1024px) {
+            .swiper {
+                height: 300px;
+            }
+            
+            .swiper-button-prev, .swiper-button-next {
+                display: flex !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .swiper {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .swiper {
+                height: 300px;
+            }
+            
+            .swiper-pagination-bullet {
+                width: 8px;
+                height: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="carrossel-container">
+        <h2>Galeria de Imagens</h2>
+        <div class="swiper mySwiperImages">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/001.png" alt="Imagem" class="lightbox-trigger" id="img1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/002.png" alt="Imagem" class="lightbox-trigger" id="img2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/003.png" alt="Imagem" class="lightbox-trigger" id="img3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/004.png" alt="Imagem" class="lightbox-trigger" id="img4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/005.png" alt="Imagem" class="lightbox-trigger" id="img5">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/006.png" alt="Imagem" class="lightbox-trigger" id="img6">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/007.png" alt="Imagem" class="lightbox-trigger" id="img7">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/008.png" alt="Imagem" class="lightbox-trigger" id="img8">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/009.png" alt="Imagem" class="lightbox-trigger" id="img9">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/010.jpg" alt="Imagem" class="lightbox-trigger" id="img10">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/010_1.jpg" alt="Imagem" class="lightbox-trigger" id="img10_1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/011.png" alt="Imagem" class="lightbox-trigger" id="img11">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/012.jpg" alt="Imagem" class="lightbox-trigger" id="img12">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/012_1.jpg" alt="Imagem" class="lightbox-trigger" id="img12_1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/012_2.jpg" alt="Imagem" class="lightbox-trigger" id="img12_2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/013.jpg" alt="Imagem" class="lightbox-trigger" id="img13">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/013_1.jpg" alt="Imagem" class="lightbox-trigger" id="img13_1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/014.jpg" alt="Imagem" class="lightbox-trigger" id="img14">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/014_1.jpg" alt="Imagem" class="lightbox-trigger" id="img14_1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/015.jpg" alt="Imagem" class="lightbox-trigger" id="img15">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/015_1.jpg" alt="Imagem" class="lightbox-trigger" id="img15_1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/016.jpg" alt="Imagem" class="lightbox-trigger" id="img16">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/016_1.jpg" alt="Imagem" class="lightbox-trigger" id="img16_1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/017.jpg" alt="Imagem" class="lightbox-trigger" id="img17">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/018.jpg" alt="Imagem" class="lightbox-trigger" id="img18">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/019.jpg" alt="Imagem" class="lightbox-trigger" id="img19">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/020.jpg" alt="Imagem" class="lightbox-trigger" id="img20">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/img/carousel_images/021.jpg" alt="Imagem" class="lightbox-trigger" id="img21">
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Lightbox Customizado -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close-top" id="lightbox-close-top">×</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-image">
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Inicializar Swiper de Imagens
+        var swiperImages = new Swiper(".mySwiperImages", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            loopedSlides: 5,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                type: 'bullets',
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            }
+        });
+
+        // Lightbox Customizado
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-image');
+        const triggers = document.querySelectorAll('.lightbox-trigger');
+        const lightboxCloseTop = document.getElementById('lightbox-close-top');
+
+        // Abrir lightbox com a imagem clicada
+        triggers.forEach((trigger) => {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                const imgSrc = this.getAttribute('src');
+                const imgAlt = this.getAttribute('alt');
+                
+                // Mostra a imagem clicada no lightbox
+                lightboxImg.src = imgSrc;
+                lightboxImg.alt = imgAlt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Fechar lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fechar ao clicar fora da imagem
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                e.preventDefault();
+                closeLightbox();
+            }
+        });
+
+        // Fechar com ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // Fechar com o botão na direita superior
+        lightboxCloseTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeLightbox();
+        });
+
+        // Mostrar setas de navegação em mobile
+        function handleResize() {
+            const arrows = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
+            arrows.forEach(arrow => {
+                arrow.style.display = 'flex';
+            });
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    </script>
+</body>
+</html>

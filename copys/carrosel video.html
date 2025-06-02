@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Vídeos</title>
+    <!-- Swiper JS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+     	<!-- Style CSS -->
+ 	<link href="assets/css/style.css" rel="stylesheet">
+    <style>
+                html,
+        body {
+            height: 100%;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            background: #fff;
+            overflow-x: auto;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .carrossel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h2 {
+            margin: 30px 0 15px;
+            color: #1d2143;;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 10px solid #0b7e09;
+            height: 400px;
+            background-color: #000;
+        }
+        
+        .swiper-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #000;
+        }
+        
+        .swiper-button-prev, .swiper-button-next {
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .swiper-button-prev::after, .swiper-button-next::after {
+            font-size: 20px;
+        }
+        
+        .swiper-pagination {
+            position: relative;
+            bottom: 0;
+            margin-top: 30px;
+        }
+        
+        .swiper-pagination-bullet {
+            background: #333;
+            opacity: 0.6;
+            width: 12px;
+            height: 12px;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: #0b7e09;
+            opacity: 1;
+        }
+        @media (max-width: 1024px) {
+            .swiper {
+                height: 400px;
+            }
+            
+            .swiper-slide {
+                height: 350px;
+            }
+            
+            .swiper-button-prev, .swiper-button-next {
+                display: flex !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .swiper {
+                height: 350px;
+            }
+            
+            .swiper-slide {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .swiper {
+                height: 250px;
+            }
+            
+            .swiper-slide {
+                height: 250px;
+            }
+            
+            .swiper-pagination-bullet {
+                width: 8px;
+                height: 8px;
+            }
+        }
+        .video-controls-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .video-controls-container > * {
+            pointer-events: auto;
+        }
+
+        .swiper-slide video {
+            pointer-events: auto;
+        }
+
+        .swiper-slide video::-webkit-media-controls {
+            pointer-events: auto !important;
+        }
+
+        .swiper-slide video::-webkit-media-controls-enclosure {
+            pointer-events: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <section class="carrossel-container">
+        <h2>Galeria de Vídeos</h2>
+        <div class="swiper mySwiperVideos">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <video class="swiper-no-swiping" id="video1" controls>
+                        <source src="assets/videos/VID-001.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <div class="swiper-slide">
+                    <video class="swiper-no-swiping" id="video2" controls>
+                        <source src="assets/videos/VID-002.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <div class="swiper-slide">
+                    <video class="swiper-no-swiping" id="video3" controls>
+                        <source src="assets/videos/VID-003.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <div class="swiper-slide">
+                    <video class="swiper-no-swiping" id="video4" controls>
+                        <source src="assets/videos/VID-004.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <div class="swiper-slide">
+                    <video class="swiper-no-swiping" id="video5" controls>
+                        <source src="assets/videos/VID-005.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <div class="swiper-slide">
+                    <video class="swiper-no-swiping" id="video6" controls>
+                        <source src="assets/videos/VID-006.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <div class="swiper-slide">
+                    <video class="swiper-no-swiping" id="video7" controls>
+                        <source src="assets/videos/VID-007.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <div class="swiper-slide">
+                    <video class="swiper-no-swiping" id="video8" controls>
+                        <source src="assets/videos/VID-008.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <!-- Adicione mais vídeos conforme necessário -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+<script>
+    // Inicializar Swiper de Vídeos
+var swiperVideos = new Swiper(".mySwiperVideos", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    noSwiping: true,
+    noSwipingClass: 'video-controls-container', // Classe que será adicionada dinamicamente
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 1,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        1024: {
+            slidesPerView: 2,
+        },
+    },
+    on: {
+        init: function() {
+            setupVideoControls();
+        },
+        slideChangeTransitionEnd: function() {
+            setupVideoControls();
+        }
+    }
+});
+
+// Função para configurar os controles do vídeo
+function setupVideoControls() {
+    document.querySelectorAll('.swiper-slide video').forEach(video => {
+        // Encontrar ou criar o container de controles
+        let controlsContainer = video.parentElement.querySelector('.video-controls-container');
+        
+        if (!controlsContainer) {
+            controlsContainer = document.createElement('div');
+            controlsContainer.className = 'video-controls-container';
+            video.parentElement.appendChild(controlsContainer);
+        }
+        
+        // Mover os controles nativos para o container
+        const nativeControls = video.shadowRoot?.querySelector('.controls') || 
+                             video.querySelector('.controls') || 
+                             video.nextElementSibling;
+        
+        if (nativeControls) {
+            controlsContainer.appendChild(nativeControls);
+        }
+        
+        // Adicionar eventos para bloquear a propagação
+        video.addEventListener('click', handleVideoInteraction, true);
+        video.addEventListener('touchstart', handleVideoInteraction, { passive: false, capture: true });
+        
+        if (controlsContainer) {
+            controlsContainer.addEventListener('click', stopPropagation, true);
+            controlsContainer.addEventListener('touchstart', stopPropagation, { passive: false, capture: true });
+        }
+    });
+}
+
+function handleVideoInteraction(e) {
+    // Se o clique foi em um controle ou no próprio vídeo
+    if (e.target.tagName === 'VIDEO' || 
+        e.target.classList.contains('controls') || 
+        e.target.closest('.controls')) {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+    }
+}
+
+function stopPropagation(e) {
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+}
+
+// Pausar vídeos quando mudar de slide
+swiperVideos.on('slideChange', function() {
+    const activeSlide = this.slides[this.activeIndex];
+    const activeVideo = activeSlide.querySelector('video');
+    
+    document.querySelectorAll('.swiper-slide video').forEach(video => {
+        if (video !== activeVideo) {
+            video.pause();
+        }
+    });
+});
+
+// Mostrar setas de navegação em mobile
+function handleResize() {
+    const arrows = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
+    arrows.forEach(arrow => {
+        arrow.style.display = 'flex';
+    });
+}
+
+// Variáveis para controle de clique duplo
+let lastClickTime = 0;
+let clickTimeout;
+
+// Adicionar funcionalidade de play/pause e tela cheia
+function setupVideoClickHandlers() {
+    document.querySelectorAll('.swiper-slide video').forEach(video => {
+        video.removeEventListener('click', handleVideoClick);
+        video.removeEventListener('touchstart', handleTouchStart);
+        
+        video.addEventListener('click', handleVideoClick);
+        video.addEventListener('touchstart', handleTouchStart, { passive: false });
+    });
+}
+
+function handleVideoClick(e) {
+    // Verificar se o clique foi em um controle do vídeo
+    if (e.target.classList.contains('controls') || e.target.closest('.controls')) {
+        e.stopPropagation();
+        return;
+    }
+
+    const currentTime = new Date().getTime();
+    const timeSinceLastClick = currentTime - lastClickTime;
+    
+    if (timeSinceLastClick < 300 && timeSinceLastClick > 0) {
+        clearTimeout(clickTimeout);
+        toggleFullscreen(this);
+        lastClickTime = 0;
+    } else {
+        lastClickTime = currentTime;
+        clickTimeout = setTimeout(() => {
+            togglePlayPause(this);
+            lastClickTime = 0;
+        }, 300);
+    }
+}
+
+function handleTouchStart(e) {
+    const currentTime = new Date().getTime();
+    const timeSinceLastClick = currentTime - lastClickTime;
+    
+    if (timeSinceLastClick < 300 && timeSinceLastClick > 0) {
+        e.preventDefault();
+        clearTimeout(clickTimeout);
+        toggleFullscreen(e.target);
+        lastClickTime = 0;
+    } else {
+        lastClickTime = currentTime;
+        clickTimeout = setTimeout(() => {
+            togglePlayPause(e.target);
+            lastClickTime = 0;
+        }, 300);
+    }
+}
+
+function togglePlayPause(video) {
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
+}
+
+function toggleFullscreen(element) {
+    if (!document.fullscreenElement) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+}
+
+// Chamar as funções iniciais
+setupVideoClickHandlers();
+setupVideoControls();
+
+// Reaplicar os handlers quando o Swiper atualizar
+swiperVideos.on('slideChangeTransitionEnd', function() {
+    setupVideoClickHandlers();
+    setupVideoControls();
+});
+
+// Configurar evento para sair da tela cheia
+document.addEventListener('fullscreenchange', handleFullscreenChange);
+document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+document.addEventListener('msfullscreenchange', handleFullscreenChange);
+
+function handleFullscreenChange() {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        document.querySelectorAll('.swiper-slide video').forEach(video => {
+            video.style.objectFit = 'contain';
+        });
+    }
+}
+
+window.addEventListener('resize', handleResize);
+handleResize();
+</script>
+</body>
+</html>
